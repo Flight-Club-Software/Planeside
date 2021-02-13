@@ -61,7 +61,7 @@ void loop() {
   print_pressure();
   print_coordinates(); 
   print_airspeed();
-  delay(1000);
+  delay(500);
 
 }
 
