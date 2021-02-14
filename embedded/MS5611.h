@@ -1,76 +1,73 @@
-/*
-MS5611.h - Header file for the MS5611 Barometric Pressure & Temperature Sensor Arduino Library.
+#pragma once
+//
+//    FILE: MS5611.h
+//  AUTHOR: Rob Tillaart
+//          Erni - testing/fixes
+// VERSION: 0.3.0
+// PURPOSE: Arduino library for MS5611 temperature and pressure sensor
+//     URL: https://github.com/RobTillaart/MS5611
+//
+// HISTORY:
+// see MS5611.cpp file
+//
 
-Version: 1.0.0
-(c) 2014 Korneliusz Jarzebski
-www.jarzebski.pl
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the version 3 GNU General Public License as
-published by the Free Software Foundation.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-#ifndef MS5611_h
-#define MS5611_h
-
-#if ARDUINO >= 100
 #include "Arduino.h"
-#else
-#include "WProgram.h"
-#endif
+#include "Wire.h"
 
-#define MS5611_ADDRESS                (0x77)
 
-#define MS5611_CMD_ADC_READ           (0x00)
-#define MS5611_CMD_RESET              (0x1E)
-#define MS5611_CMD_CONV_D1            (0x40)
-#define MS5611_CMD_CONV_D2            (0x50)
-#define MS5611_CMD_READ_PROM          (0xA2)
+#define MS5611_LIB_VERSION (F("0.3.0"))
 
-typedef enum
-{
-    MS5611_ULTRA_HIGH_RES   = 0x08,
-    MS5611_HIGH_RES         = 0x06,
-    MS5611_STANDARD         = 0x04,
-    MS5611_LOW_POWER        = 0x02,
-    MS5611_ULTRA_LOW_POWER  = 0x00
-} ms5611_osr_t;
+
+#define MS5611_READ_OK        0
+#define MS5611_ERROR_2        2         // low level I2C error
+#define MS5611_NOT_READ       -999
+
 
 class MS5611
 {
-    public:
+public:
+  explicit MS5611(uint8_t deviceAddress);
 
-	bool begin(ms5611_osr_t osr = MS5611_HIGH_RES);
-	uint32_t readRawTemperature(void);
-	uint32_t readRawPressure(void);
-	double readTemperature(bool compensation = false);
-	int32_t readPressure(bool compensation = false);
-	double getAltitude(double pressure, double seaLevelPressure = 101325);
-	double getSeaLevel(double pressure, double altitude);
-	void setOversampling(ms5611_osr_t osr);
-	ms5611_osr_t getOversampling(void);
+#if defined (ESP8266) || defined(ESP32)
+  bool     begin(uint8_t sda, uint8_t scl, TwoWire *wire = &Wire);
+#endif
+  bool     begin(TwoWire *wire = &Wire);
+  bool     isConnected();
 
-    private:
+  // reset command + get constants
+  void     reset();
 
-	uint16_t fc[6];
-	uint8_t ct;
-	uint8_t uosr;
-	int32_t TEMP2;
-	int64_t OFF2, SENS2;
+  // the actual reading of the sensor;
+  // returns MS5611_READ_OK upon success
+  int      read(uint8_t bits = 8);
 
-	void reset(void);
-	void readPROM(void);
+  // temperature is in ²C
+  float    getTemperature() const { return _temperature * 0.01; };
 
-	uint16_t readRegister16(uint8_t reg);
-	uint32_t readRegister24(uint8_t reg);
+  // pressure is in mBar
+  float    getPressure() const    { return _pressure * 0.01; };
+
+  // to check for failure
+  int      getLastResult() const  { return _result; };
+
+  // last time in millis() that the sensor has been read.
+  uint32_t lastRead()           { return _lastRead; };
+
+private:
+  void     convert(const uint8_t addr, uint8_t bits);
+  uint32_t readADC();
+  uint16_t readProm(uint8_t reg);
+  int      command(const uint8_t command);
+
+  uint8_t  _address;
+  int32_t  _temperature;
+  int32_t  _pressure;
+  int      _result;
+  float    C[7];
+  uint32_t _lastRead;
+  
+  TwoWire * _wire;
 };
 
-#endif
+// -- END OF FILE --
