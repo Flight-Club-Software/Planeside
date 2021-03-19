@@ -85,8 +85,8 @@
 						<div class="row" style="height: 100%; width: 100%;">
 							<div class="col">
 								<div id="dash" style="height:40%; background-color: #414042;">
-									<h5>28 minutes</h5>
-									<p style="font-size: x-small;">estimated remaining fly time</p>
+									<h5 style="width: 100%; text-align: center;padding-top: 10px">28 minutes</h5>
+									<p style="font-size: x-small;width: 80%; margin: auto; text-align: center;">estimated remaining fly time</p>
 								</div>
 								<div id="dash" style="height:63%; background-color: #414042;"></div>
 							</div>
@@ -96,7 +96,10 @@
 										<div id="dash" style="height: 105%;"></div>
 									</div>
 									<div style="position: absolute;z-index: 1000;left:50%;transform:translate(-50%, 0); top: 8px">
-										<span class="circle"></span>
+										<span class="circle">
+											<img src="/svg/Compass Marks.svg" width="80%" id="image-center" style="margin-top: 18px">
+											<img src="/svg/Compass Plane.svg"  width="50%" id="image-center">
+										</span>
 									</div>
 									<div class="col">
 										<div id="dash" style="height: 105%;"></div>
@@ -106,8 +109,37 @@
 							</div>
 							
 							<div class="col">
-								<div id="dash" style="height:20%"></div>
-								<div id="dash" style="height:20%"></div>
+								<div id="dash" style="height:20%">
+									<div class="progress" style="height: 100%; background-color: transparent">
+										<div class="progress-bar" style="width:30%;background-image:
+										linear-gradient(
+										  to right, 
+										  green, limegreen
+										);
+									">
+									<div style="position: absolute;margin-left: 5px;">
+										<p style="padding:0; margin:0; margin-top: 5px; font-size:15px">30º C</p>
+										<p style="font-size: 7px;">Motor Temp</p>
+									</div>
+										</div>
+									  </div>
+									
+									</div>
+								
+								<div id="dash" style="height:20%">
+									<div class="progress" style="height: 100%; background-color: transparent">
+										<div class="progress-bar" style="width:70%;background-image:
+										linear-gradient(
+										  to right, 
+										  yellow, orange
+										);
+									">
+									<div style="position: absolute;margin-left: 5px;">
+										<p style="padding:0; margin:0; margin-top: 5px; font-size:15px">46º C</p>
+										<p style="font-size: 7px;">ESC Temp</p>
+									</div>
+										</div>
+									  </div></div>
 								<div id="dash" style="height:60%"></div>
 							</div>
 						</div>
