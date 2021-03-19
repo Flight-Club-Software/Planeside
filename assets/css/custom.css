@@ -1,45 +1,94 @@
-body {
+@font-face {
+	font-family: "proximaNova";
+	src: url('../Fonts/proxima_ssv/ProximaNova-Regular.otf');
+  }
+  
+  html, body {
 	background-color: #000;
-	color: #fff
-}
-
-#main {
+	color: #fff;
+	height: 100%;
+	font-family: "proximaNova";
+  }
+  
+  #main {
 	padding-left: 5px;
 	padding-top: 5px;
-}
-
-#m-left {
+  }
+  
+  #m-left {
 	padding-left: 5px;
-}
-
-#m-right {
+  }
+  
+  #m-right {
 	padding-right: 5px;
-}
-
-.brand-large {
+  }
+  
+  .brand-large {
 	font-size: 2rem;
-}
-
-.btn {
+  }
+  
+  .btn {
 	font-size: 1.5rem;
-}
-
-#m-left {
+  }
+  
+  #m-left {
 	left: 0px;
 	position: absolute;
-}
-
-#m-right {
+  }
+  
+  #m-right {
 	right: 0px;
 	position: absolute;
-}
-
-.vCenter {
+  }
+  
+  .vCenter {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-.navbar-brand span,li {
+  }
+  
+  .navbar-brand span,
+  li {
 	font-weight: 700;
-}
+  }
+  
+  #centered-img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  
+  #altitude {
+	height:1px; 
+	background-color: #fff; 
+	display: inline-block;
+	top: 12px;
+  }
+  
+  #center {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 10px;
+	/* align-items: center; */
+  }
+  
+  #spacer {
+	height: 15px
+  }
+  
+  #dash {
+	border-radius: 5px;
+	margin-top: 4px;
+	margin-left: -15px;
+	background-color: #414042;
+  }
+
+  .circle {
+	height: 200px;
+	width: 200px;
+	background-color: #000;
+	border-radius: 50%;
+	display: inline-block;
+	z-index: 10000;
+	margin:auto
+  }
