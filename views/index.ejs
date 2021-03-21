@@ -1,316 +1,406 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>FCA Planeside</title>
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/custom.css">
-		<meta charset="utf-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	</head>
 
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light nav-main">
-			<li class="navbar-brand brand-large" href="#">Flight Club Alpha V1</li>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<head>
+    <title>FCA Planeside</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav-main">
+        <li class="navbar-brand brand-large" href="#">Flight Club Alpha V1</li>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav px-5">
-				<li class="nav-item px-3">
-					<button class="btn btn-dark" id="menuSixPack" onclick="menuChange('sixPack')">Six Pack</button>
-				</li>
-				<li class="nav-item px-3">
-					<button class="btn btn-light" id="menuBattManagement" onclick="menuChange('batteryManagement')">Battery Management</button>
-				</li>
-				<li class="nav-item px-3">
-					<button class="btn btn-light" id="menuRawData" onclick="menuChange('rawData')">Raw Data</button>
-				</li>
-			</ul>
-			</div>
-		</nav>
-		<br>
+		</button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav px-5">
+                <li class="nav-item px-3">
+                    <button class="btn btn-dark" id="menuSixPack" onclick="menuChange('sixPack')">Six Pack</button>
+                </li>
+                <li class="nav-item px-3">
+                    <button class="btn btn-light" id="menuBattManagement" onclick="menuChange('batteryManagement')">Battery Management</button>
+                </li>
+                <li class="nav-item px-3">
+                    <button class="btn btn-light" id="menuRawData" onclick="menuChange('rawData')">Raw Data</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
 
-		<div class="container-fluid" id="menu-sixPack" style="display:block; height: 80%;">
-			<div class="row" style="height:100%">
-			<div class="col">
-					<div style="background-color: #1c75bc; height: 33%; display: flex; align-items: flex-end; justify-content: center;width: 93%">
-						<div style="position: absolute; display: block; top: 40px">
-							<h5>0º</h5>
-						</div>
-						<div style="width: 100%;">
-							<div class="row" style="padding-bottom: 5px;">
-								<h5 class="col" style="text-align: right;">10</h5>
-								<div  class= "col-3" id="altitude"></div>
-								<h5 class = "col">10</h5>
-							</div>
-							<div id="center">
-								<div id="altitude" style="width: 10%; height: 1px;"></div>
-							</div>
-							<div class="row" style="padding-bottom: 5px;">
-								<h5 class="col" style="text-align: right;">5</h5>
-								<div  class= "col-3" id="altitude"></div>
-								<h5 class = "col">5</h5>
-							</div>
-							<div id="center">
-								<div id="altitude" style="width: 10%; height: 1px;"></div>
-							</div>
-							<div id="spacer"></div>
-						</div>
-					</div>
-					<div style="background-color: #fff; height: 1px; width:93%">
-						<img src="/svg/Attitude Indicator.svg" width="50%" id="centered-img">
-					</div>
-					<div style="background-color: #8b5e3c; height: 33%; width: 93%">
-						<div style="width: 100%;">
-							<div id="spacer" style="height: 21px;"></div>
-							<div id="center">
-								<div id="altitude" style="width: 10%; height: 1px;"></div>
-							</div>
-							<div class="row" style="padding-bottom: 5px;">
-								<h5 class="col" style="text-align: right;">-5</h5>
-								<div  class= "col-3" id="altitude"></div>
-								<h5 class = "col">-5</h5>
-							</div>
-							<div id="center">
-								<div id="altitude" style="width: 10%; height: 1px;"></div>
-							</div>
-							<div class="row" style="padding-bottom: 5px;">
-								<h5 class="col" style="text-align: right;">-10</h5>
-								<div  class= "col-3" id="altitude"></div>
-								<h5 class = "col">-10</h5>
-							</div>						
-						</div>
-					</div>
-					<div class="container" style="height:33%;width:100%; ">
-						<div class="row" style="height: 100%; width: 100%;">
-							<div class="col">
-								<div id="dash" style="height:40%; background-color: #414042;">
-									<h5 style="width: 100%; text-align: center;padding-top: 10px">28 minutes</h5>
-									<p style="font-size: x-small;width: 80%; margin: auto; text-align: center;">estimated remaining fly time</p>
-								</div>
-								<div id="dash" style="height:63%; background-color: #414042;"></div>
-							</div>
-							<div class="col-6" style="height: 100%;">
-								<div class="row" style="height: 100%;">
-									<div class="col">
-										<div id="dash" style="height: 105%;"></div>
-									</div>
-									<div style="position: absolute;z-index: 1000;left:50%;transform:translate(-50%, 0); top: 8px">
-										<span class="circle">
-											<img src="/svg/Compass Marks.svg" width="80%" id="image-center" style="margin-top: 18px">
-											<img src="/svg/Compass Plane.svg"  width="50%" id="image-center">
-										</span>
-									</div>
-									<div class="col">
-										<div id="dash" style="height: 105%;"></div>
-									</div>
-								</div>
+    <div class="container-fluid" id="menu-sixPack" style="display:block; height: 80%;">
+        <div class="row" style="height:100%">
+            <div class="col">
+                <div style="background-color: #1c75bc; height: 33%; display: flex; align-items: flex-end; justify-content: center;width: 93%">
+                    <div style="position: absolute; display: block; top: 40px">
+                        <h5>0º</h5>
+                    </div>
+                    <div style="width: 100%;">
+                        <div class="row" style="padding-bottom: 5px;">
+                            <h5 class="col" style="text-align: right;">10</h5>
+                            <div class="col-3" id="altitude"></div>
+                            <h5 class="col">10</h5>
+                        </div>
+                        <div id="center">
+                            <div id="altitude" style="width: 10%; height: 1px;"></div>
+                        </div>
+                        <div class="row" style="padding-bottom: 5px;">
+                            <h5 class="col" style="text-align: right;">5</h5>
+                            <div class="col-3" id="altitude"></div>
+                            <h5 class="col">5</h5>
+                        </div>
+                        <div id="center">
+                            <div id="altitude" style="width: 10%; height: 1px;"></div>
+                        </div>
+                        <div id="spacer"></div>
+                    </div>
+                </div>
+                <div style="background-color: #fff; height: 1px; width:93%">
+                    <img src="/svg/Attitude Indicator.svg" width="50%" id="centered-img">
+                </div>
+                <div style="background-color: #8b5e3c; height: 33%; width: 93%">
+                    <div style="width: 100%;">
+                        <div id="spacer" style="height: 21px;"></div>
+                        <div id="center">
+                            <div id="altitude" style="width: 10%; height: 1px;"></div>
+                        </div>
+                        <div class="row" style="padding-bottom: 5px;">
+                            <h5 class="col" style="text-align: right;">-5</h5>
+                            <div class="col-3" id="altitude"></div>
+                            <h5 class="col">-5</h5>
+                        </div>
+                        <div id="center">
+                            <div id="altitude" style="width: 10%; height: 1px;"></div>
+                        </div>
+                        <div class="row" style="padding-bottom: 5px;">
+                            <h5 class="col" style="text-align: right;">-10</h5>
+                            <div class="col-3" id="altitude"></div>
+                            <h5 class="col">-10</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="height:33%;width:100%; ">
+                    <div class="row" style="height: 100%; width: 100%;">
+                        <div class="col">
+                            <div id="dash" style="height:40%; background-color: #414042;">
+                                <h5 style="width: 100%; text-align: center;padding-top: 10px">28 minutes</h5>
+                                <p style="font-size: x-small;width: 80%; margin: auto; text-align: center;">estimated remaining fly time</p>
+                            </div>
+                            <div id="dash" style="height:63%; background-color: #414042;">
+                                <h4 style="position: absolute; width: 90%; text-align: center;margin-top: 28%;">70º C
+                                </h4>
+                                <p style="position: absolute; width: 90%; text-align: center; margin-top: 43%; font-size: 10px;color:#bdbbbb">
+                                    Battery Temp</p>
+                                <svg width="90%" height="90%" viewBox="0 0 42 42" class="donut">
+									<circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent"
+										stroke="#d2d3d4" stroke-width="3"></circle>
+									<!-- 75% filled and 25% not filled under stroke-dasharray-->
+									<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954"
+										fill="transparent" stroke="url(#chart-gradient)" stroke-width="3"
+										stroke-dasharray="75 25" stroke-dashoffset="100"></circle>
+								</svg>
+                            </div>
+                        </div>
+                        <div class="col-6" style="height: 100%;">
+                            <div class="row" style="height: 100%;">
+                                <div class="col">
+                                    <div id="dash" style="height: 105%;position: relative;">
+                                        <h5 style="padding: 5px;">69%</h5>
+                                        <div id="bottom" style="height:70%; width:100%; background-image: linear-gradient(#1c75bc, #8442cf)">
+                                            <h5 id="bottom" style="padding: 5px;bottom: -10px;">112.6V</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="position: absolute;z-index: 1000;left:50%;transform:translate(-50%, 0); top: 8px">
+                                    <span class="circle">
+										<img src="/svg/Compass Marks.svg" width="80%" id="image-center"
+											style="margin-top: 18px">
+										<img src="/svg/Compass Plane.svg" width="50%" id="image-center">
+									</span>
+                                </div>
+                                <div class="col">
+                                    <div id="dash" style="height: 105%;position: relative;">
+                                        <h5 style="padding: 5px; width: 100%; text-align: right;">4.2KW</h5>
+                                        <div id="bottom" style="height:30%; width:100%; background-image: linear-gradient(red,orange)">
+                                            <h5 id="bottom" style="padding: 5px; width:100%;text-align: right;bottom: -10px;">52.3A
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-							</div>
-							
-							<div class="col">
-								<div id="dash" style="height:20%">
-									<div class="progress" style="height: 100%; background-color: transparent">
-										<div class="progress-bar" style="width:30%;background-image:
+                        </div>
+
+                        <div class="col">
+                            <div id="dash" style="height:20%">
+                                <div class="progress" style="height: 100%; background-color: transparent">
+                                    <div class="progress-bar" style="width:30%;background-image:
 										linear-gradient(
 										  to right, 
 										  green, limegreen
 										);
+										border-radius: 5px;
 									">
-									<div style="position: absolute;margin-left: 5px;">
-										<p style="padding:0; margin:0; margin-top: 5px; font-size:15px">30º C</p>
-										<p style="font-size: 7px;">Motor Temp</p>
-									</div>
-										</div>
-									  </div>
-									
-									</div>
-								
-								<div id="dash" style="height:20%">
-									<div class="progress" style="height: 100%; background-color: transparent">
-										<div class="progress-bar" style="width:70%;background-image:
+                                        <div style="position: absolute;margin-left: 5px;">
+                                            <p style="padding:0; margin:0; margin-top: 10px; font-size:20px">30º C</p>
+                                            <p style="font-size: 10px;padding:0;margin-top:-5px; color:#bdbbbb">Motor Temp
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="dash" style="height:20%">
+                                <div class="progress" style="height: 100%; background-color: transparent">
+                                    <div class="progress-bar" style="width:70%;background-image:
 										linear-gradient(
 										  to right, 
 										  yellow, orange
 										);
+										border-radius: 5px;
 									">
-									<div style="position: absolute;margin-left: 5px;">
-										<p style="padding:0; margin:0; margin-top: 5px; font-size:15px">46º C</p>
-										<p style="font-size: 7px;">ESC Temp</p>
-									</div>
-										</div>
-									  </div></div>
-								<div id="dash" style="height:60%"></div>
-							</div>
-						</div>
-					</div>
-			</div>
-			<div class="col">
-				<h1>map</h1>
-			</div>
-		</div>
+                                        <div style="position: absolute;margin-left: 5px;">
+                                            <p style="padding:0; margin:0; margin-top: 10px; font-size:20px">46º C</p>
+                                            <p style="font-size: 10px;padding:0;margin-top:-5px; color: #bdbbbb;">ESC Temp
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="dash" style="height:60%">
+                                <h4 style="position: absolute; width: 90%; text-align: center;margin-top: 28%;">2400
+                                </h4>
+                                <p style="position: absolute; width: 90%; text-align: center; margin-top: 43%; font-size: 10px;color:#bdbbbb">
+                                    Prop RPM</p>
+                                <svg width="90%" height="90%" viewBox="0 0 42 42" class="donut">
+									<linearGradient id="chart-gradient" gradientTransform="rotate(0)">
+										<stop offset="5%" stop-color="gold" />
+										<stop offset="95%" stop-color="red" />
+									</linearGradient>
+									<circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent"
+										stroke="#d2d3d4" stroke-width="3"></circle>
+									<circle class="donut-segment" cx="21" cy="21" r="15.91549430918954"
+										fill="transparent" stroke="url(#chart-gradient)" stroke-width="3"
+										stroke-dasharray="75 25" stroke-dashoffset="100"></circle>
+								</svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h1>map</h1>
+                <div id="bottom" style="width: 100%; bottom: 10px;">
+                    <div class="row">
+                        <div class="col">
+                            <button style="background-color: #3f77bc;" class="btn" id="map-btn">
+								<img src="/svg/icons/placeholder.svg" width="50px" id="btn-image">
+							</button>
+                        </div>
+                        <div class="col">
+                            <button style="background-color:transparent;" class="btn" id="map-btn">
+								<img src="/svg/icons/battery.svg" width="50px" id="btn-image">
+							</button>
+                        </div>
+                        <div class="col">
+                            <button style="background-color:transparent;" class="btn" id="map-btn">
+								<img src="/svg/icons/network.svg" width="50px" id="btn-image">
+							</button>
+                        </div>
+                        <div class="col">
+                            <button style="background-color:transparent;" class="btn" id="map-btn">
+								<img src="/svg/icons/notebook.svg" width="50px" id="btn-image">
+							</button>
+                        </div>
+                    </div>
+                </div>
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
 
-		<div class="container" id="menu-batteryManagement" style="display: none">
-			<canvas style="padding-left: 10px" id="c-cell-voltage"></canvas>
-			<canvas style="padding-left: 10px" id="c-kW-draw"></canvas>
-		</div>
+        <div class="container" id="menu-batteryManagement" style="display: none">
+            <canvas style="padding-left: 10px" id="c-cell-voltage"></canvas>
+            <canvas style="padding-left: 10px" id="c-kW-draw"></canvas>
+        </div>
 
-		<div class="container" id="menu-rawData" style="display: none">
-			<canvas style="padding-left: 10px" id="c-raw-gyro"></canvas>
-			<canvas style="padding-left: 10px" id="c-raw-accel"></canvas>
-			<canvas style="padding-left: 10px" id="c-raw-alt"></canvas>
-			<br>
-			<canvas style="padding-left: 10px" id="c-ori-x"></canvas>
-			<canvas style="padding-left: 10px" id="c-ori-y"></canvas>
-			<canvas style="padding-left: 10px" id="c-ori-z"></canvas>
-		</div>
+        <div class="container" id="menu-rawData" style="display: none">
+            <canvas style="padding-left: 10px" id="c-raw-gyro"></canvas>
+            <canvas style="padding-left: 10px" id="c-raw-accel"></canvas>
+            <canvas style="padding-left: 10px" id="c-raw-alt"></canvas>
+            <br>
+            <canvas style="padding-left: 10px" id="c-ori-x"></canvas>
+            <canvas style="padding-left: 10px" id="c-ori-y"></canvas>
+            <canvas style="padding-left: 10px" id="c-ori-z"></canvas>
+        </div>
 
-		<nav class="nav fixed-bottom navbar-light bg-light justify-content-center">
-			<li class="navbar-brand text-danger" id="connect-status">Connection Status: Disconnected</li>
-		</nav>
+        <nav class="nav fixed-bottom navbar-light bg-light justify-content-center">
+            <li class="navbar-brand text-danger" id="connect-status">Connection Status: Disconnected</li>
+        </nav>
 
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-		<script src="/js/AaronGraphLibrary.js"></script>
-		<script src="http://localhost:80/socket.io/socket.io.js"></script>
-	</body>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="/js/AaronGraphLibrary.js"></script>
+        <script src="http://localhost:80/socket.io/socket.io.js"></script>
+</body>
 
-	<script>
-		let loc = window.location.href;
-		var socket = io.connect(loc.substring(0, loc.length-1)+":"+(window.location.port||80), {
-			withCredentials: true
-		});
+<script>
+    let loc = window.location.href;
+    var socket = io.connect(loc.substring(0, loc.length - 1) + ":" + (window.location.port || 80), {
+        withCredentials: true
+    });
 
-		socket.on('connect', () => {
-			console.log("Connected to server");
-			let stat = document.getElementById("connect-status");
-			stat.innerHTML = "Connection Status: OK";
-			stat.className = "navbar-brand";
-		});
-		socket.on('event', data => {
-			console.log("data get: "+data);
-		});
-		socket.on('disconnect', () => {
-			console.log("Disconnected from server");
-			let stat = document.getElementById("connect-status");
-			stat.innerHTML = "Connection Status: Disconnected";
-			stat.className = "navbar-brand text-danger";
-		});
+    socket.on('connect', () => {
+        console.log("Connected to server");
+        let stat = document.getElementById("connect-status");
+        stat.innerHTML = "Connection Status: OK";
+        stat.className = "navbar-brand";
+    });
+    socket.on('event', data => {
+        console.log("data get: " + data);
+    });
+    socket.on('disconnect', () => {
+        console.log("Disconnected from server");
+        let stat = document.getElementById("connect-status");
+        stat.innerHTML = "Connection Status: Disconnected";
+        stat.className = "navbar-brand text-danger";
+    });
 
-		let bufferGyro = [[], [], []]; //x, y, z
-		let bufferAccel = [[], [], []]; //x, y, z
-		let bufferAlt = [[]]; //alt
-		const rawGyroGraph = new DisplayGraph("c-raw-gyro", {
-			buffers: bufferGyro,
-			colors: ["#ff0000", "#00ff00", "#0000ff"],
-			title: "Raw Gyro Data",
-			titleX: "Time (sec)",
-			titleY: "Angular Velocity (deg/sec)"
-		});
-		const rawAccelGraph = new DisplayGraph("c-raw-accel", {
-			buffers: bufferAccel,
-			colors: ["#ff0000", "#00ff00", "#0000ff"],
-			title: "Raw Accel Data",
-			titleX: "Time (sec)",
-			titleY: "Acceleration (m/sec^2)"
-		});
-		const rawAltGraph = new DisplayGraph("c-raw-alt", {
-			buffers: bufferAlt,
-			colors: ["#000"],
-			title: "Raw Altitude Data",
-			titleX: "Time (sec)",
-			titleY: "Altitude (ft)"
-		});
-		socket.on("data-raw-gyro", data => {
-			bufferGyro[0].push([data.x, data.time]);
-			bufferGyro[1].push([data.y, data.time]);
-			bufferGyro[2].push([data.z, data.time]);
-		})
-		socket.on("data-raw-accel", data => {
-			bufferAccel[0].push([data.x, data.time]);
-			bufferAccel[1].push([data.y, data.time]);
-			bufferAccel[2].push([data.z, data.time]);
-		})
-		socket.on("data-raw-alt", data => {
-			bufferAlt[0].push([data.alt, data.time]);
-		})
+    let bufferGyro = [
+        [],
+        [],
+        []
+    ]; //x, y, z
+    let bufferAccel = [
+        [],
+        [],
+        []
+    ]; //x, y, z
+    let bufferAlt = [
+        []
+    ]; //alt
+    const rawGyroGraph = new DisplayGraph("c-raw-gyro", {
+        buffers: bufferGyro,
+        colors: ["#ff0000", "#00ff00", "#0000ff"],
+        title: "Raw Gyro Data",
+        titleX: "Time (sec)",
+        titleY: "Angular Velocity (deg/sec)"
+    });
+    const rawAccelGraph = new DisplayGraph("c-raw-accel", {
+        buffers: bufferAccel,
+        colors: ["#ff0000", "#00ff00", "#0000ff"],
+        title: "Raw Accel Data",
+        titleX: "Time (sec)",
+        titleY: "Acceleration (m/sec^2)"
+    });
+    const rawAltGraph = new DisplayGraph("c-raw-alt", {
+        buffers: bufferAlt,
+        colors: ["#000"],
+        title: "Raw Altitude Data",
+        titleX: "Time (sec)",
+        titleY: "Altitude (ft)"
+    });
+    socket.on("data-raw-gyro", data => {
+        bufferGyro[0].push([data.x, data.time]);
+        bufferGyro[1].push([data.y, data.time]);
+        bufferGyro[2].push([data.z, data.time]);
+    })
+    socket.on("data-raw-accel", data => {
+        bufferAccel[0].push([data.x, data.time]);
+        bufferAccel[1].push([data.y, data.time]);
+        bufferAccel[2].push([data.z, data.time]);
+    })
+    socket.on("data-raw-alt", data => {
+        bufferAlt[0].push([data.alt, data.time]);
+    })
 
-		const bufferOriX = [[]]; //x
-		const bufferOriY = [[]]; //y
-		const bufferOriZ = [[]]; //z
-		const rawOriXGraph = new DisplayGraph("c-ori-x", {
-			buffers: bufferOriX,
-			colors: ["#000"],
-			title: "Body Orientation X",
-			titleX: "Time (sec)",
-			titleY: "deg"
-		});
-		const rawOriYGraph = new DisplayGraph("c-ori-y", {
-			buffers: bufferOriY,
-			colors: ["#000"],
-			title: "Body Orientation Y",
-			titleX: "Time (sec)",
-			titleY: "deg"
-		});
-		const rawOriZGraph = new DisplayGraph("c-ori-z", {
-			buffers: bufferOriZ,
-			colors: ["#000"],
-			title: "Body Orientation Z",
-			titleX: "Time (sec)",
-			titleY: "deg"
-		});
-		socket.on("data-ori", data => {
-			bufferOriX[0].push([data.x, data.time]);
-			bufferOriY[0].push([data.y, data.time]);
-			bufferOriZ[0].push([data.z, data.time]);
-		})
+    const bufferOriX = [
+        []
+    ]; //x
+    const bufferOriY = [
+        []
+    ]; //y
+    const bufferOriZ = [
+        []
+    ]; //z
+    const rawOriXGraph = new DisplayGraph("c-ori-x", {
+        buffers: bufferOriX,
+        colors: ["#000"],
+        title: "Body Orientation X",
+        titleX: "Time (sec)",
+        titleY: "deg"
+    });
+    const rawOriYGraph = new DisplayGraph("c-ori-y", {
+        buffers: bufferOriY,
+        colors: ["#000"],
+        title: "Body Orientation Y",
+        titleX: "Time (sec)",
+        titleY: "deg"
+    });
+    const rawOriZGraph = new DisplayGraph("c-ori-z", {
+        buffers: bufferOriZ,
+        colors: ["#000"],
+        title: "Body Orientation Z",
+        titleX: "Time (sec)",
+        titleY: "deg"
+    });
+    socket.on("data-ori", data => {
+        bufferOriX[0].push([data.x, data.time]);
+        bufferOriY[0].push([data.y, data.time]);
+        bufferOriZ[0].push([data.z, data.time]);
+    })
 
-		const menuChange = newMenu => {
-			let light = [];
-			let dark = [];
-			let hide = [];
-			let show = [];
-			if (newMenu == "sixPack") {
-				light.push("menuBattManagement");
-				light.push("menuRawData");
-				dark.push("menuSixPack");
+    const menuChange = newMenu => {
+        let light = [];
+        let dark = [];
+        let hide = [];
+        let show = [];
+        if (newMenu == "sixPack") {
+            light.push("menuBattManagement");
+            light.push("menuRawData");
+            dark.push("menuSixPack");
 
-				hide.push("menu-rawData");
-				hide.push("menu-batteryManagement");
-				show.push("menu-sixPack");
-			} else if (newMenu == "batteryManagement") {
-				light.push("menuRawData");
-				light.push("menuSixPack");
-				dark.push("menuBattManagement");
+            hide.push("menu-rawData");
+            hide.push("menu-batteryManagement");
+            show.push("menu-sixPack");
+        } else if (newMenu == "batteryManagement") {
+            light.push("menuRawData");
+            light.push("menuSixPack");
+            dark.push("menuBattManagement");
 
-				hide.push("menu-rawData");
-				show.push("menu-batteryManagement");
-				hide.push("menu-sixPack");
-			} else {
-				light.push("menuBattManagement");
-				light.push("menuSixPack");
-				dark.push("menuRawData");
+            hide.push("menu-rawData");
+            show.push("menu-batteryManagement");
+            hide.push("menu-sixPack");
+        } else {
+            light.push("menuBattManagement");
+            light.push("menuSixPack");
+            dark.push("menuRawData");
 
-				show.push("menu-rawData");
-				hide.push("menu-batteryManagement");
-				hide.push("menu-sixPack");
-			}
+            show.push("menu-rawData");
+            hide.push("menu-batteryManagement");
+            hide.push("menu-sixPack");
+        }
 
-			for (let i=0; i<light.length; i++) {
-				document.getElementById(light[i]).className = "btn btn-light";
-			}
-			for (let i=0; i<dark.length; i++) {
-				document.getElementById(dark[i]).className = "btn btn-dark";
-			}
+        for (let i = 0; i < light.length; i++) {
+            document.getElementById(light[i]).className = "btn btn-light";
+        }
+        for (let i = 0; i < dark.length; i++) {
+            document.getElementById(dark[i]).className = "btn btn-dark";
+        }
 
-			for (let i=0; i<hide.length; i++) {
-				document.getElementById(hide[i]).style.display = "none";
-			}
-			for (let i=0; i<show.length; i++) {
-				document.getElementById(show[i]).style.display = "block";
-			}
+        for (let i = 0; i < hide.length; i++) {
+            document.getElementById(hide[i]).style.display = "none";
+        }
+        for (let i = 0; i < show.length; i++) {
+            document.getElementById(show[i]).style.display = "block";
+        }
 
-		}
-	</script>
+    }
+</script>
+</script>
+
 </html>
