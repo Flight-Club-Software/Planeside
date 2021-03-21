@@ -34,7 +34,7 @@
     <div class="container-fluid" id="menu-sixPack" style="display:block; height: 80%;">
         <div class="row" style="height:100%">
             <div class="col">
-                <div style="background-color: #1c75bc; height: 33%; display: flex; align-items: flex-end; justify-content: center;width: 93%">
+                <div style="background-color: #1c75bc; height: 33%; display: flex; align-items: flex-end; justify-content: center;width: 100%">
                     <div style="position: absolute; display: block; top: 40px">
                         <h5>0º</h5>
                     </div>
@@ -58,10 +58,10 @@
                         <div id="spacer"></div>
                     </div>
                 </div>
-                <div style="background-color: #fff; height: 1px; width:93%">
+                <div style="background-color: #fff; height: 1px; width:100%">
                     <img src="/svg/Attitude Indicator.svg" width="50%" id="centered-img">
                 </div>
-                <div style="background-color: #8b5e3c; height: 33%; width: 93%">
+                <div style="background-color: #8b5e3c; height: 33%; width: 100%">
                     <div style="width: 100%;">
                         <div id="spacer" style="height: 21px;"></div>
                         <div id="center">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container" style="height:33%;width:100%; ">
+                <div class="container" style="height:33%;width:107%;">
                     <div class="row" style="height: 100%; width: 100%;">
                         <div class="col">
                             <div id="dash" style="height:40%; background-color: #414042;">
@@ -193,26 +193,82 @@
                 </div>
             </div>
             <div class="col">
-                <h1>map</h1>
-                <div id="bottom" style="width: 100%; bottom: 10px;">
+                <div id="map" style="display: block;">
+                    <div>
+                        <div>
+                            <img src="/svg/icons/satellite.svg" width="50px" id="btn-image" style="display: inline-block">
+                            <h3 style="display: inline-block;margin-left: 10px;">16</h3>
+                        </div>
+                        <br>
+                        <div>
+                            <img src="/svg/icons/navigation.svg" width="50px" id="btn-image" style="display: inline-block">
+                            <h3 style="display: inline-block;margin-left: 10px;">2.4</h3>
+                        </div>
+
+                        <div style="position: absolute; right: 10px; top: 0;border: 1px solid white; border-radius: 20px;">
+                            <img src="/svg/icons/add.svg" width="30px" id="btn-image" style="margin: 5px">
+                            <div style="margin: 5px; height: 30px"></div>
+                            <img src="/svg/icons/minus.svg" width="30px" id="btn-image" style="margin: 5px">
+                        </div>
+
+                        <div style="position: absolute; right: 60px; top:0;">
+                            <h3 style="display: inline-block;">1 mile</h3>
+                            <h3 style="transform: rotate(180deg);display: inline-block;">|_________________|</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="battery" style="display: none;">
+                    <h1>battery</h1>
+                </div>
+                <div id="network" style="display: none;">
+                    <h1>network</h1>
+                </div>
+                <div id="notebook" style="display: none;">
+                    <img src="/svg/FCA Logo.svg" width="200px" id="centered-img" style=" -webkit-filter: invert(100%);filter: invert(100%);">
+                    <h5 style="width: 100%; text-align: center;">Flight Club Open Avionics</h5>
+                    <div style="align-items: center; width: 38%; margin: auto">
+                        <img src="/svg/icons/cc.svg" width="40px" id="btn-image" style="margin: 10px;">
+                        <img src="/svg/icons/by.svg" width="40px" id="btn-image" style="margin: 10px;">
+                        <img src="/svg/icons/sa.svg" width="40px" id="btn-image" style="margin: 10px;">
+                        <img src="/svg/icons/nc.svg" width="40px" id="btn-image" style="margin: 10px;">
+                    </div>
+                    <div style="height: 10px;"></div>
+                    <div style="width: 50%; text-align: center;margin:auto;margin-bottom:-50px">
+                        <h6 style="width: 100%; text-align: center;">Firmware: v1.0 (January 2021)</h6>
+                        <a href="https://github.com/Flight-Club-Software/Planeside/tree/main" style="width: 100%;">github link</a>
+                        <div style="height: 5px;"></div>
+                        <h6>-</h6>
+                        <div style="height: 5px;"></div>
+                        <h6 style="width: 100%; text-align: center;">Hardware: v1.0 (January 2021)</h6>
+                        <a href="https://github.com/Flight-Club-Software/Planeside/tree/main" style="width: 100%;">github link</a>
+                        <div style="height: 5px;"></div>
+                        <h6>-</h6>
+                        <div style="height: 5px;"></div>
+                        <h6 style="width: 100%; text-align: center;">Contact</h6>
+                        <a href="https://flightclubaerospace.com" style="width: 100%;">website</a>
+                        <br>
+                        <a href="mailto:general@flightclubaerospace.com" style="width: 100%;">email</a>
+                    </div>
+                </div>
+                <div id="bottom" style="width: 100%; bottom: 10px">
                     <div class="row">
                         <div class="col">
-                            <button style="background-color: #3f77bc;" class="btn" id="map-btn">
+                            <button style="background-color: #3f77bc;" class="btn" id="map-btn" onclick="changeContainer('map')">
 								<img src="/svg/icons/placeholder.svg" width="50px" id="btn-image">
 							</button>
                         </div>
                         <div class="col">
-                            <button style="background-color:transparent;" class="btn" id="map-btn">
+                            <button style="background-color:transparent;" class="btn" id="battery-btn" onclick="changeContainer('battery')">
 								<img src="/svg/icons/battery.svg" width="50px" id="btn-image">
 							</button>
                         </div>
                         <div class="col">
-                            <button style="background-color:transparent;" class="btn" id="map-btn">
+                            <button style="background-color:transparent;" class="btn" id="network-btn" onclick="changeContainer( 'network')">
 								<img src="/svg/icons/network.svg" width="50px" id="btn-image">
 							</button>
                         </div>
                         <div class="col">
-                            <button style="background-color:transparent;" class="btn" id="map-btn">
+                            <button style="background-color:transparent;" class="btn" id="notebook-btn" onclick="changeContainer('notebook')">
 								<img src="/svg/icons/notebook.svg" width="50px" id="btn-image">
 							</button>
                         </div>
@@ -261,7 +317,7 @@
         stat.className = "navbar-brand";
     });
     socket.on('event', data => {
-        console.log("data get: " + data);
+        console.log("data get:" + data);
     });
     socket.on('disconnect', () => {
         console.log("Disconnected from server");
@@ -401,6 +457,19 @@
 
     }
 </script>
+</script>
+<script>
+    const changeContainer = (container) => {
+        let hide = ["map", "battery", "network", "notebook"];
+        let index = hide.indexOf(container);
+        hide.splice(index, 1);
+        for (let i = 0; i < hide.length; i++) {
+            document.getElementById(hide[i] + "-btn").style.backgroundColor = "transparent";
+            document.getElementById(hide[i]).style.display = "none";
+        }
+        document.getElementById(container + "-btn").style.backgroundColor = "#3f77bc"
+        document.getElementById(container).style.display = "block";
+    }
 </script>
 
 </html>
