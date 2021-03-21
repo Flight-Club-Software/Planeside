@@ -145,3 +145,37 @@ a:active {
     text-decoration: underline;
     color: #d2d3d479
 }
+
+#altitude-sides {
+    height: 5%;
+    width: 30%;
+    border: 1px solid white;
+}
+
+#altitude-side {
+    height: 5%;
+    width: 30%;
+    border: 1px solid white;
+    margin-left: 100%;
+    transform: translate(-100%, 0);
+    z-index: 0;
+}
+
+#altitude-text {
+    margin-left: 150%;
+    font-size: smaller;
+}
+
+#altitude-text-right {
+    margin-left: -275%;
+    font-size: smaller;
+}
+
+.arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid black;
+    position: absolute;
+}
