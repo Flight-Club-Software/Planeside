@@ -179,3 +179,11 @@ a:active {
     border-right: 10px solid black;
     position: absolute;
 }
+
+#graph-btn {
+    border: 0.5px solid white;
+    border-radius: 20px;
+    width: 25%;
+    color: white;
+    margin: 10px;
+}
