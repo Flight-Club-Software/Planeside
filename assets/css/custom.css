@@ -187,3 +187,7 @@ a:active {
     color: white;
     margin: 10px;
 }
+
+#mapid { 
+    height: 400px;
+ }
