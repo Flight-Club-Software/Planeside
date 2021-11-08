@@ -9,6 +9,6 @@ Dash grey: 414042
 
 Selected button blue: 3f77bc
 
-For the graph gradients, just mess around till they look sexy or about right. I like the current color scheme but feel free to tinker with it
+
 
 
